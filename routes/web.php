@@ -21,10 +21,6 @@ Route::get('/produtos', 'ControladorProduto@index')->name("produtos.index");
 Route::get('/categorias', 'ControladorCategoria@index')->name("categorias.index");
 Route::get('/categorias/novo', 'ControladorCategoria@create')->name("categorias.create");
 Route::post('/categorias', 'ControladorCategoria@store')->name("categorias.store");
-
-Route::get('/1', function () {
-    return view('index');
-})->name('categorias.editar');
-
-
 Route::get('categorias/apagar/{id}', 'ControladorCategoria@destroy')->name('categorias.apagar');
+Route::get('categorias/editar/{id}', 'ControladorCategoria@edit')->name('categorias.editar');
+Route::post('/categorias/{id}', 'ControladorCategoria@update')->name("categorias.update");
