@@ -21,3 +21,11 @@ Route::get('/produtos', 'ControladorProduto@index')->name("produtos.index");
 Route::get('/categorias', 'ControladorCategoria@index')->name("categorias.index");
 Route::get('/categorias/novo', 'ControladorCategoria@create')->name("categorias.create");
 Route::post('/categorias', 'ControladorCategoria@store')->name("categorias.store");
+
+Route::get('/1', function () {
+    return view('index');
+})->name('categorias.editar');
+
+Route::get('/2', function () {
+    return view('index');
+})->name('categorias.apagar');
