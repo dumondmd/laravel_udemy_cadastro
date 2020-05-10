@@ -3,6 +3,11 @@
 <head>	
 	<link rel="stylesheet" type="text/css" href="{{asset('site/style.css')}}">
 	<title>Cadastro de Produtos</title>
+	<style type="text/css">
+		body {
+			padding: 20px;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
