@@ -26,6 +26,5 @@ Route::get('/1', function () {
     return view('index');
 })->name('categorias.editar');
 
-Route::get('/2', function () {
-    return view('index');
-})->name('categorias.apagar');
+
+Route::get('categorias/apagar/{id}', 'ControladorCategoria@destroy')->name('categorias.apagar');
