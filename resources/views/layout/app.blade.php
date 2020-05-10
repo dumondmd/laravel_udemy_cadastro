@@ -7,13 +7,20 @@
 		body {
 			padding: 20px;
 		}
+		.navbar {
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		@hasSection('body')
-			@yield('body')
-		@endif	
+		@component('componente_navbar')
+		@endcomponent
+		<main role="main">
+			@hasSection('body')
+				@yield('body')
+			@endif
+		</main>	
 	</div>
 	<script src="{{asset('site/jquery.js')}}" type="text/javascript"></script>
 	<script src="{{asset('site/bootstrap.js')}}" type="text/javascript"></script>
