@@ -24,4 +24,10 @@ mix
 	.scripts('node_modules/jquery/dist/jquery.js', 'public/site/jquery.js')
 	.scripts('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'public/site/bootstrap.js');	
 ```
-
+# JSON
+## Convertendo para JSON
+Só usar o comando *json_encode()*
+```
+$cats = Categoria::all();
+return json_encode($cats);
+```

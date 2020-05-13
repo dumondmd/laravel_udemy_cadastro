@@ -100,4 +100,10 @@ class ControladorCategoria extends Controller
         }
         return redirect()->route('categorias.index');
     }
+    public function indexJson()
+    {
+        $cats = Categoria::all();
+        return json_encode($cats);
+    }
+
 }
