@@ -24,5 +24,8 @@
 	</div>
 	<script src="{{asset('site/jquery.js')}}" type="text/javascript"></script>
 	<script src="{{asset('site/bootstrap.js')}}" type="text/javascript"></script>
+	@hasSection('javascript')
+		@yield('javascript')
+	@endif	
 </body>
 </html>
