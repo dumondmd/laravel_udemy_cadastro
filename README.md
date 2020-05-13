@@ -26,8 +26,15 @@ mix
 ```
 # JSON
 ## Convertendo para JSON
-Só usar o comando *json_encode()*
+Comandos:
+ *json_encode()*
+ *toJson()*
+ 
 ```
 $cats = Categoria::all();
 return json_encode($cats);
+```
+```
+$prods = Produto::all();
+return $prods->toJson();
 ```
