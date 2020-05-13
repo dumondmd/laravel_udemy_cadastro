@@ -16,7 +16,7 @@ npm install bootstrap
 
 ## Configurando webpack.mix.js
 
-No **webpack.mix.js** coloque 
+No **webpack.mix.js** coloque *npm run dev*
 
 ```
 mix
