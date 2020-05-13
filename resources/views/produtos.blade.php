@@ -60,9 +60,10 @@
 					</div>
 
 					<div class="form-group">
-						<label for="departamentoProduto" class="control-label">Departamento</label>
+						<label for="categoriaProduto" class="control-label">Categoria</label>
 						<div class="input-group">
-							<input type="text" class="form-control" id="departamentoProduto" placeholder="Departamento do produto">
+							<select class="form-control" id="categoriaProduto" >
+                            </select>
 						</div>						
 					</div>
 					
@@ -85,12 +86,24 @@
 @section('javascript')
 <script type="text/javascript">
 	function novoProduto() {
-		$('#id').val('');
-		$('#nomeProduto').val('');
-		$('#precoProduto').val('');
-		$('#quantidadeProduto').val('');
-		$('#departamentoProduto').val('');		
-		$('#dlgProdutos').modal('show');
-	}
+        $('#id').val('');
+        $('#nomeProduto').val('');
+        $('#precoProduto').val('');
+        $('#quantidadeProduto').val('');
+        $('#dlgProdutos').modal('show');
+    }
+
+	function carregarCategorias() {
+        $.getJSON('/api/categorias', function(data) { 
+            for(i=0;i<data.length;i++) {
+                opcao = '<option value ="' + data[i].id + '">' + 
+                    data[i].nome + '</option>';
+                $('#categoriaProduto').append(opcao);
+            }
+        });
+    }
+	$(function(){
+        carregarCategorias();        
+    })
 </script>
 @endsection
