@@ -60,12 +60,12 @@
 					</div>
 
 					<div class="form-group">
-						<label for="categoriaProduto" class="control-label">Categoria</label>
-						<div class="input-group">
-							<select class="form-control" id="categoriaProduto" >
-                            </select>
-						</div>						
-					</div>
+                        <label for="categoriaProduto" class="control-label">Categoria</label>
+                        <div class="input-group">
+                            <select class="form-control" id="categoriaProduto" >
+                            </select>    
+                        </div>
+                    </div>
 					
 				</div>
 				<div class="modal-footer">
@@ -110,18 +110,18 @@
     }
 
     function montarLinha(p) {
-    	var linha = "<tr>" + 
-    		"<td>" + p.id + "</td>" +
-    		"<td>" + p.nome + "</td>" +
-    		"<td>" + p.estoque + "</td>" +
-     		"<td>" + p.preco + "</td>" +
-     		"<td>" + p.categoria_id + "</td>" +
-     		"<td>" +
-     			'<button class="btn btn-sm btn-primary"> Editar </button>' +
-     			'<button class="btn btn-sm btn-danger"> Apagar </button>' +
-     		"</td>" +
-     		"</tr>";     		
-     		return linha;	
+        var linha = "<tr>" +
+            "<td>" + p.id + "</td>" +
+            "<td>" + p.nome + "</td>" +
+            "<td>" + p.estoque + "</td>" +
+            "<td>" + p.preco + "</td>" +
+            "<td>" + p.categoria_id + "</td>" +
+            "<td>" +
+              '<button class="btn btn-sm btn-primary" onclick="editar(' + p.id + ')"> Editar </button> ' +
+              '<button class="btn btn-sm btn-danger" onclick="remover(' + p.id + ')"> Apagar </button> ' +
+            "</td>" +
+            "</tr>";
+        return linha;
     }
 
     function carregarProdutos() {
@@ -132,6 +132,26 @@
     		}
     	});
     }
+
+    function criarProduto() {
+        prod = { 
+            nome: $("#nomeProduto").val(), 
+            preco: $("#precoProduto").val(), 
+            estoque: $("#quantidadeProduto").val(), 
+            categoria_id: $("#categoriaProduto").val() 
+        };
+        $.post("/api/produtos", prod, function(data) {
+            produto = JSON.parse(data);
+            linha = montarLinha(produto);
+            $('#tabelaProdutos>tbody').append(linha);            
+        });
+    }
+
+    $("#formProduto").submit( function(event) {
+    	event.preventDefault();
+    	criarProduto();
+    	$("dlgProdutos").modal('hide');
+    });
 
 	$(function(){
         carregarCategorias();
