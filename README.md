@@ -38,3 +38,11 @@ return json_encode($cats);
 $prods = Produto::all();
 return $prods->toJson();
 ```
+## JQUERY
+A funcção será executada após o HTML ser completamente carregado
+```
+$(function(){
+    carregarCategorias();
+    carregarProdutos();        
+});
+```
