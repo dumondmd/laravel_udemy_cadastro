@@ -46,3 +46,12 @@ $(function(){
     carregarProdutos();        
 });
 ```
+## CSRF
+Passando o token csrf do Laravel via JQuery
+```
+$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': "{{csrf_token()}}"
+		}
+	});
+```
